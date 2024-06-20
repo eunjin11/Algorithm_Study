@@ -1,22 +1,18 @@
 import sys
 input = sys.stdin.readline
 
-N = int(input())
-meetings=[]
+N=int(input())
+meeting=[]
+for _ in range(N):
+    meeting.append(tuple(map(int,input().split())))
+
+meeting.sort(key = lambda x :(x[1], x[0]))
 count=0
-
-for i in range(0,N):
-    start, end = map(int, input().split())
-    meetings.append([start, end])
-
-#끝나는 시간 기준으로 소트
-meetings.sort(key=lambda x: (x[1], x[0]))
-
 end_time=0
-for meeting in meetings:
-    if meeting[0]>=end_time:
-        end_time=meeting[1]
-        #print(meeting)
+
+for i in meeting:
+    if i[0]>=end_time:
+        end_time=i[1]
         count+=1
-    
+
 print(count)
