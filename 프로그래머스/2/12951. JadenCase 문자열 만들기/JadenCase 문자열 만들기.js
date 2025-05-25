@@ -1,15 +1,6 @@
 function solution(s) {
-   
-    let answer = s[0].toUpperCase()
-    
-    for(let i = 1 ; i<s.length ; i++){
-        if (s[i-1]==' '){
-            answer+=s[i].toUpperCase()
-        }else{
-            answer+=s[i].toLowerCase()
-        }
-    }
-    
-    
-    return answer;
+    return s.split(" ").map((word)=>{
+        return word.charAt(0).toUpperCase() + word.substring(1).toLowerCase()
+    }).join(" ");   
 }
+
